@@ -14,7 +14,6 @@
  />
  <div>
   <h1 class="m-0">HandyCart</h1>
-  <!-- <p class="m-0">Since 2022</p> -->
  </div>
           </div>
 
@@ -26,6 +25,12 @@
               </li>
               <li class="nav__item">
                  <NuxtLink class="" to="/shop" >Shop</NuxtLink>
+              </li>
+              <li class="nav__item">
+                 <NuxtLink class="" to="/about" >About</NuxtLink>
+              </li>
+              <li class="nav__item">
+                 <NuxtLink class="" to="/contact" >Contact</NuxtLink>
               </li>
             </ul>
           </div>

@@ -2,14 +2,6 @@
  <div>
     
 
-     <!-- <LazyImage 
- :src="`https://images5.alphacoders.com/532/532559.jpg`"
- :key="'test-image'"
-            style="width:500px;height:500px;"
-            :alt="'test-image'"
-            :title="'test-image'"
-            class="rounded"
- /> -->
 
  <section class="hero_section">
   <div class="container">
@@ -39,12 +31,27 @@
   </div>
 
  </section>
+
+ <Services/>
+ <TrendingProducts/>
+ <BestSellers/>
+ <TimerCount/>
   </div>
 </template>
 
 <script>
+import Services from "~/components/Home/Services.vue"
+import TrendingProducts from "~/components/Home/TrendingProducts.vue"
+import BestSellers from "~/components/Home/BestSellers.vue"
+import TimerCount from "~/components/Home/TimerCount.vue"
 export default {
-  name: 'HandiCart Home',
+  name: 'Home',
+  components:{
+    Services,
+    TrendingProducts,
+    BestSellers,
+    TimerCount
+  },
   computed:{
     getCurrYear(){
       return new Date().getFullYear()
@@ -75,7 +82,7 @@ export default {
   font-weight: 500;
 }
 
-.buy__btn{
+/* .buy__btn{
   border: none;
   outline: none;
   padding: 8px 20px;
@@ -92,7 +99,7 @@ export default {
 .buy__btn a:hover{
   color:inherit;
   text-decoration: none;
-}
+} */
 
 
 </style>
