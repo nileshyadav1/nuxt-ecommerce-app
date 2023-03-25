@@ -3,10 +3,10 @@
     
 
 
- <section class="hero_section">
+ <section class="hero_section ">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-6 pt-0 pt-md-5">
         <div class="hero__content">
 
           <p class="m-0 hero__subtitle">Trending products in {{getCurrYear}}</p>
@@ -16,7 +16,7 @@
             <button class="buy__btn"> <NuxtLink class="" to="/shop" >SHOP NOW</NuxtLink></button>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 pt-0 pt-md-5">
         <div class="hero__img">
             <LazyImage 
  :src="require(`~/assets/images/hero-img.png`)"
@@ -33,9 +33,11 @@
  </section>
 
  <Services/>
- <TrendingProducts/>
+ <TrendingProducts />
  <BestSellers/>
  <TimerCount/>
+ <NewArrivals  />
+ <PopularCategory  />
   </div>
 </template>
 
@@ -44,13 +46,17 @@ import Services from "~/components/Home/Services.vue"
 import TrendingProducts from "~/components/Home/TrendingProducts.vue"
 import BestSellers from "~/components/Home/BestSellers.vue"
 import TimerCount from "~/components/Home/TimerCount.vue"
+import NewArrivals from "~/components/Home/NewArrivals.vue"
+import PopularCategory from "~/components/Home/PopularCategory.vue"
 export default {
   name: 'Home',
   components:{
     Services,
     TrendingProducts,
     BestSellers,
-    TimerCount
+    TimerCount,
+    NewArrivals,
+    PopularCategory
   },
   computed:{
     getCurrYear(){
@@ -82,24 +88,25 @@ export default {
   font-weight: 500;
 }
 
-/* .buy__btn{
-  border: none;
-  outline: none;
-  padding: 8px 20px;
-  border-radius: 5px;
-  background: var(--primary-color);
-  color:#fff;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 40px;
+@media only screen and (max-width:992px){
+  .hero__content h2{
+    font-size:2rem
+  }
 }
-.buy__btn a{
-  color:inherit
+@media only screen and (max-width:768px){
+  .hero__content h2{
+    font-size:1.6rem
+  }
+  .hero__content p{
+    font-size:0.9rem;
+  }
 }
-.buy__btn a:hover{
-  color:inherit;
-  text-decoration: none;
-} */
+@media only screen and (max-width:576px){
+  .hero__content{
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+}
 
 
 </style>

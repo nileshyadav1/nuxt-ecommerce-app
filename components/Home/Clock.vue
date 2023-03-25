@@ -71,4 +71,14 @@ created(){
 .fs-5{
     font-size:1.1rem;
 }
+
+@media only screen and (max-width:992px){
+   .clock__data h1{
+    font-size: 1.1rem !important;
+   }
+   .clock__data h5{
+    font-size: 0.9rem !important;
+   }
+    
+}
 </style>

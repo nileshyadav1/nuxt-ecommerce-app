@@ -3,7 +3,7 @@
    <section class="best__sales">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center mb-5">
                 <h2 class="section__title text-center">
                     Best Seller
                 </h2>

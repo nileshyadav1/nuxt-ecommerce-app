@@ -1,6 +1,6 @@
 <template>
-  <div>
-   <div class="header">
+  <div >
+   <header class="header" :class="customClass">
     <div class="container ">
       <div class="row">
         <div class="nav__wrapper w-100 ">
@@ -18,8 +18,11 @@
           </div>
 
 
-          <div class="navigation">
-            <ul class="menu">
+          <div class="navigation" ref="Naviagtion" :class="mobileNavToggle? 'active__menu':null">
+            <div class="closeSideBar" v-if="mobileNavToggle" @click="mobileNavToggle = !mobileNavToggle" style="cursor:pointer">
+              <span><i class="ri-close-line"></i></span>
+            </div>
+            <ul class="menu ">
               <li class="nav__item">
                  <NuxtLink class="" to="/" exact>Home</NuxtLink>
               </li>
@@ -37,34 +40,71 @@
 
 
           <div class="nav__icons">
-            <span class="cart__icon">
-              <BIconBag/>
+            <span class="main__icon">
+          <i class="ri-instagram-line"></i>
             </span>
-            <span class="cart__icon">
-              <BIconBag/>
-            </span>
-            <span class="cart__icon">
-              <BIconBag/>
-            </span>
-             </div>
-
+            <!-- <span class="cart__icon">
+             <i class="ri-mail-line"></i>
+            </span> -->
 
              <!-- Mobile Menu -->
              <div class="mobile__menu">
-              <span> <BIconThreeDotsVertical/></span>
+              <span @click="mobileNavToggle = !mobileNavToggle" style="cursor:pointer"> <i class="ri-menu-line"></i></span>
              </div>
+             </div>
+
+
+            
         </div>
       </div>
     </div>
-   </div>
+   </header>
   </div>
 </template>
 
 <script>
 
-import { BIconBag,BIconThreeDotsVertical} from "bootstrap-vue";
 export default {
-  components: { BIconBag,BIconThreeDotsVertical},
+  data(){
+    return {
+      customClass : 'sticky__header',
+      mobileNavToggle:false,
+    }
+  },
+  methods:{
+    closeNav(){
+      this.mobileNavToggle = false;
+    },
+      closeNavbar (e) {
+        console.log("E",e.target,this.$refs.Naviagtion.contains(e.target))
+        if (!this.$refs.Naviagtion.contains(e.target)) {
+              if(this.mobileNavToggle){
+                  this.closeNav()
+              }
+      
+        } 
+      }
+  },
+   watch: {
+    '$route': function (to, from) {
+      if (to.path !== from.path) {
+        this.closeNav()
+      }
+    }
+  },
+    //  created() {
+    //   if(process.client){
+    //     window.addEventListener('click', this.closeNavbar)
+    //   }
+        
+    // },
+    //  beforeDestroy () {
+    //     if(process.client){
+    //   window.removeEventListener('click', this.closeNavbar)
+    //   }
+    // }
+
+ 
 
 }
 </script>

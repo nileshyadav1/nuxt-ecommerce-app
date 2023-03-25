@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-12 text-center mb-5">
                 <h2 class="section__title ">
-                    Trending Products
+                   New Arrivals
                 </h2>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="product in getTrendingProducts" :key="product.id">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="product in getNewArrivalsProducts" :key="product.id">
                 <ProductCard :Product="product"/>
             </div>
            
@@ -32,8 +32,8 @@ components:{
 },
 computed:{
 
-    getTrendingProducts(){
-        return this.Products.filter(item=>item.category == 'chair')
+    getNewArrivalsProducts(){
+        return this.Products.filter(item=>item.category == 'mobile' || item.category == 'wireless')
     }
 }
 }
