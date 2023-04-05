@@ -4,7 +4,8 @@
     <div class="container ">
       <div class="row">
         <div class="nav__wrapper w-100 ">
-          <div class="logo">
+          <div>
+            <nuxt-link to="/" class="logo">
            <LazyImage 
  :src="require(`~/assets/images/eco-logo.png`)"
  :key="'HandyCart Logo'"
@@ -15,6 +16,7 @@
  <div>
   <h1 class="m-0">HandyCart</h1>
  </div>
+ </nuxt-link>
           </div>
 
 

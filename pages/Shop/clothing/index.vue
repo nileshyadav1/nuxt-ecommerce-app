@@ -4,20 +4,26 @@
     <section class="clothing-main">
       <div class="row">
         <div class="col-12 col-md-3">
-          <div class="collection-filter">
+          <div class="collection-filter" :class="isMobileFilterOpen ? 'openFilterBar' : null">
+            <div class="collection-mobile-back">
+              <span class="filter-back" @click="isMobileFilterOpen = !isMobileFilterOpen">
+                <i class="ri-arrow-left-line"></i>
+                Back
+              </span>
+            </div>
             <div class="collection-filter-block">
               <div class="collection-collapse-block">
                 <div class="collapse-block-top">
-                  <h3 class="collapse-block-title">Category</h3>
+                  <h3 class="collapse-block-title" @click="isCategoryOpen = !isCategoryOpen">Category</h3>
 
                   <i
                     v-if="isCategoryOpen"
-                    class="ri-arrow-drop-up-line"
+                    class="ri-arrow-drop-up-line d-none d-lg-block"
                     @click="isCategoryOpen = !isCategoryOpen"
                   ></i>
                   <i
                     v-else
-                    class="ri-arrow-drop-down-line"
+                    class="ri-arrow-drop-down-line d-none d-lg-block"
                     @click="isCategoryOpen = !isCategoryOpen"
                   ></i>
                 </div>
@@ -36,10 +42,14 @@
                             ? 'font-weight-bold'
                             : null
                         "
+                        style="cursor:pointer;"
                       >
                         {{ category }}
                       </li>
                     </ul>
+
+                    <p @click="selectedCategory = null" class="text-center mt-3 mt-lg-0" style="cursor:pointer"><small class="filterText">Reset Filter</small></p>
+                    
                   </div>
                 </div>
               </div>
@@ -47,16 +57,16 @@
             <div class="collection-filter-block">
               <div class="collection-collapse-block">
                 <div class="collapse-block-top">
-                  <h3 class="collapse-block-title">Brand</h3>
+                  <h3 class="collapse-block-title" @click="isBrandOpen = !isBrandOpen">Brand</h3>
 
                   <i
                     v-if="isBrandOpen"
-                    class="ri-arrow-drop-up-line"
+                    class="ri-arrow-drop-up-line d-none d-lg-block"
                     @click="isBrandOpen = !isBrandOpen"
                   ></i>
                   <i
                     v-else
-                    class="ri-arrow-drop-down-line"
+                    class="ri-arrow-drop-down-line d-none d-lg-block"
                     @click="isBrandOpen = !isBrandOpen"
                   ></i>
                 </div>
@@ -70,10 +80,12 @@
                       v-model="selectedBrands"
                       :key="option"
                       :value="option"
-                      class="text-white"
+                      class="filterText"
                     >
                       {{ option }}
                     </b-form-checkbox>
+
+                     <p @click="selectedBrands = []" class="text-center mt-3 mt-lg-0" style="cursor:pointer"><small class="filterText">Reset Filter</small></p>
                   </div>
                 </div>
               </div>
@@ -81,16 +93,16 @@
             <div class="collection-filter-block">
               <div class="collection-collapse-block">
                 <div class="collapse-block-top">
-                  <h3 class="collapse-block-title">Colors</h3>
+                  <h3 class="collapse-block-title"  @click="isColorOpen = !isColorOpen">Colors</h3>
 
                   <i
                     v-if="isColorOpen"
-                    class="ri-arrow-drop-up-line"
-                    @click="isColorOpen = !isColorOpen"
+                    class="ri-arrow-drop-up-line d-none d-lg-block"
+                   @click="isColorOpen = !isColorOpen"
                   ></i>
                   <i
                     v-else
-                    class="ri-arrow-drop-down-line"
+                    class="ri-arrow-drop-down-line d-none d-lg-block"
                     @click="isColorOpen = !isColorOpen"
                   ></i>
                 </div>
@@ -104,10 +116,11 @@
                       v-model="selectedColors"
                       :key="option"
                       :value="option"
-                      class="text-white"
+                      class="filterText"
                     >
                       {{ option }}
                     </b-form-checkbox>
+                      <p @click="selectedColors = []" class="text-center mt-3 mt-lg-0" style="cursor:pointer"><small class="filterText">Reset Filter</small></p>
                   </div>
                 </div>
               </div>
@@ -115,16 +128,16 @@
             <div class="collection-filter-block">
               <div class="collection-collapse-block">
                 <div class="collapse-block-top">
-                  <h3 class="collapse-block-title">Size</h3>
+                  <h3 class="collapse-block-title"  @click="isSizeOpen = !isSizeOpen">Size</h3>
 
                   <i
                     v-if="isSizeOpen"
-                    class="ri-arrow-drop-up-line"
-                    @click="isSizeOpen = !isSizeOpen"
+                    class="ri-arrow-drop-up-line d-none d-lg-block"
+                   @click="isSizeOpen = !isSizeOpen"
                   ></i>
                   <i
                     v-else
-                    class="ri-arrow-drop-down-line"
+                    class="ri-arrow-drop-down-line d-none d-lg-block"
                     @click="isSizeOpen = !isSizeOpen"
                   ></i>
                 </div>
@@ -138,18 +151,26 @@
                       v-model="selectedSize"
                       :key="option"
                       :value="option"
-                      class="text-white"
+                      class="filterText"
                     >
                       {{ option }}
                     </b-form-checkbox>
+                    <p @click="selectedSize = []" class="text-center mt-2 mt-lg-0" style="cursor:pointer"><small class="filterText">Reset Filter</small></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-9 bg-dark">
-          <div>right section</div>
+        <div class="col-12 col-md-12 col-lg-9">
+         <div class="row">
+          <div class="col-12 d-block d-lg-none">
+            <button class="btn FilterToggleBtn" @click="isMobileFilterOpen = !isMobileFilterOpen"> <i class="ri-filter-fill"></i> Filter</button>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4" v-for="product in getClothingProducts" :key="product.id">
+                <ProductCard :Product="product"/>
+            </div>
+         </div>
         </div>
       </div>
     </section>
@@ -158,10 +179,13 @@
 
 <script>
 import CommonSection from "~/components/Global/CommonSection.vue";
+import ProductCard from "~/components/Global/ProductCard.vue"
+import Products from "~/assets/data/products"
 export default {
-  components: { CommonSection },
+  components: { CommonSection ,ProductCard},
   data() {
     return {
+      isMobileFilterOpen:false,
       isCategoryOpen: false,
       isBrandOpen: false,
       isColorOpen: false,
@@ -174,6 +198,7 @@ export default {
       size: ["xs", "s", "m", "l", "xl","xxl"],
       selectedCategory: null,
       categories: ["Men", "Women", "Kids"],
+       Products: Products,
     };
   },
   methods: {
@@ -181,6 +206,12 @@ export default {
       this.selectedCategory = value;
     },
   },
+  computed:{
+
+    getClothingProducts(){
+        return this.Products
+    }
+}
 };
 </script>
 
@@ -190,75 +221,5 @@ export default {
   padding-right: 5%;
 }
 
-.collection-filter-block {
-  background-color: var(--primary-color);
-  margin-bottom: 30px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--primary-color);
-  border-image: initial;
-  padding: 0px 30px;
-}
 
-.collection-collapse-block {
-  padding-bottom: 24px;
-}
-
-.collapse-block-top {
-  position: relative;
-}
-.collapse-block-top i {
-  color: #fff;
-  font-size: 36px;
-  cursor: pointer;
-  display: block;
-  font-family: FontAwesome;
-  position: absolute;
-  right: -3px;
-  top: -17px;
-}
-
-.collection-collapse-block .collapse-block-title {
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-
-  text-transform: uppercase;
-  margin: 30px 0px 0px;
-}
-
-.collection-collapse-block-content {
-  max-height: 500px;
-  transition-duration: 0.5s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.collection-filter-inside {
-  margin-top: 30px;
-  max-height: 170px;
-  overflow-y: auto;
-}
-.collection-filter-inside .filter-list li {
-  display: flex;
-  font-size: 16px;
-  line-height: 18px;
-  text-transform: capitalize;
-}
-.collection-filter-inside .filter-list li {
-  display: flex;
-  font-size: 16px;
-  line-height: 18px;
-  text-transform: capitalize;
-  color: #fff;
-  padding-bottom: 10px;
-}
-
-.collection-filter-inside
-  >>> .custom-control-input:checked
-  ~ .custom-control-label::before {
-  border-color: #fff !important;
-  background-color: var(--primary-color) !important;
-}
 </style>
