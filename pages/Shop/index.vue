@@ -8,7 +8,7 @@
           <div class="col-12 text-center mb-5">
             <h2 class="section__title text-center">Shop By Category</h2>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
             <div class="category-banner">
               <div class="bg-div">
                 <LazyImage
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
             <div class="category-banner">
               <div class="bg-div">
                 <LazyImage
@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
             <div class="category-banner">
               <div class="bg-div">
                 <LazyImage
@@ -121,5 +121,12 @@ export default {
  .category-banner:hover img {
     transform: scale(1.1) translate(14px);
     transition: .5s ease;
+}
+
+@media only screen and (max-width:768px){
+  .category-box h2 {
+  
+  font-size: 20px;
+}
 }
 </style>

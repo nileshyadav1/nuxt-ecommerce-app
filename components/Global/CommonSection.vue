@@ -29,4 +29,14 @@ props:['title']
     text-align: center;
     font-weight: 600;
 }
+
+@media only screen and (max-width:768px){
+.common__section{
+  padding:70px 0;
+}
+.common__section h1 {
+   font-size: 1.4rem;
+}
+
+}
 </style>
