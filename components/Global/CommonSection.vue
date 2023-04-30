@@ -16,9 +16,9 @@ props:['title']
 
 <style scoped>
 .common__section{
-    background: linear-gradient(rgba(0,0,0,0.562) , rgba(0,0,0,0.562)) , url("https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,0.562) , rgba(0,0,0,0.562)) , url("https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat 50% 30%;
     background-size: cover;
-    padding: 100px 0;
+    padding: 150px 0;
     display: flex;
     align-items: center;
     justify-content: center;

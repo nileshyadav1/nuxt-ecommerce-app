@@ -10,9 +10,9 @@
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
             <div class="category-banner">
-              <div class="bg-div">
+              <div class="bg-div ">
                 <LazyImage
-                  :src="'https://multikart-vuepixelstrap.vercel.app/images/cat1.png'"
+                  :src="'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'"
                   :key="'HandyCart Hero image'"
                   :alt="'HandyCart Hero image'"
                   :title="'HandyCart Hero image'"
@@ -30,7 +30,7 @@
             <div class="category-banner">
               <div class="bg-div">
                 <LazyImage
-                  :src="'https://multikart-vuepixelstrap.vercel.app/images/cat1.png'"
+                  :src="'https://images.unsplash.com/photo-1584609226397-de5612afdfea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'"
                   :key="'HandyCart Hero image'"
                   :alt="'HandyCart Hero image'"
                   :title="'HandyCart Hero image'"
@@ -48,7 +48,7 @@
             <div class="category-banner">
               <div class="bg-div">
                 <LazyImage
-                  :src="'https://multikart-vuepixelstrap.vercel.app/images/cat1.png'"
+                  :src="'https://images.unsplash.com/photo-1617048931430-5eb626d81e71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80'"
                   :key="'HandyCart Hero image'"
                   :alt="'HandyCart Hero image'"
                   :title="'HandyCart Hero image'"
@@ -82,7 +82,6 @@ export default {
   overflow: hidden;
   padding: 0;
   position: relative;
-  
    box-shadow: 0 2px 8px 0 rgba(99,99,99,0.2);
 }
 
@@ -118,6 +117,17 @@ export default {
   text-transform: uppercase;
 }
 
+.category-banner .bg-div{
+  max-height:300px;
+  
+}
+.category-banner .bg-div img{
+  height:100%;
+  width:100%;
+ object-fit: cover;
+  object-position: center center;
+
+}
  .category-banner:hover img {
     transform: scale(1.1) translate(14px);
     transition: .5s ease;
